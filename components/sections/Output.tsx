@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { ClipboardIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   result: string;
@@ -14,19 +15,20 @@ const Result = ({ result }: Props) => {
   if (!result) return null;
 
   return (
-    <div className="mt-10 border p-6">
-      <h2 className="font-semibold mb-4">Hasil AI</h2>
-
-      <div className="border p-4 min-h-[150px] whitespace-pre-wrap">
-        {result}
+    <div className="p-2">
+      <div className="flex items-center justify-between mb-4">
+        <button
+          onClick={handleCopy}
+          className="text-sm border border-gray-400 px-3 py-1 rounded hover:bg-gray-200 hover:cursor-pointer transition"
+        >
+          <ClipboardIcon className="w-4 h-4 inline-block mr-1" />
+          Copy
+        </button>
       </div>
 
-      <button
-        onClick={handleCopy}
-        className="mt-4 border px-4 py-2 hover:bg-gray-200 transition"
-      >
-        Copy
-      </button>
+      <div className="bg-white border-2 border-gray-300 rounded-md p-4 min-h-[180px] whitespace-pre-wrap leading-relaxed">
+        {result}
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 "use client";
 import Input from "../../components/sections/Input";
 import Result from "../../components/sections/Output";
+import LoadingOverlay from "../../components/LoadingOverlay";
 import { useState } from "react";
 
 export default function Home() {
@@ -13,9 +14,13 @@ export default function Home() {
 
       <Input setResult={setResult} setIsLoading={setIsLoading} />
 
-      {isLoading && <p className="mt-6">AI sedang memproses...</p>}
+      <LoadingOverlay isLoading={isLoading} />
+      {/* {isLoading && <p className="mt-6">AI sedang memproses...</p>} */}
 
-      <Result result={result} />
+      <h2 className="font-semibold text-lg mt-10">Hasil AI </h2>
+      <div className="border p-6 rounded-lg min-h-[200px]">
+        <Result result={result} />
+      </div>
     </main>
   );
 }

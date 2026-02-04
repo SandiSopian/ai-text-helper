@@ -8,17 +8,49 @@ const groq = new OpenAI({
 
 export async function POST(req: Request) {
   try {
-    const { text, mode, style } = await req.json();
+    const { text, mode, style, character } = await req.json();
 
-    let prompt = "";
+    // 🎯 MODE = tujuan output
+    const modeInstruction: Record<string, string> = {
+      caption:
+        "Write a short and engaging social media caption (1-3 sentences).",
+      ringkas: "Summarize the text into 5 clear key points.",
+      lanjutkan_teks:
+        "Continue the text naturally with coherent flow and same context.",
+      perbaiki_teks:
+        "Fix grammar, spelling, and sentence structure to make the text clearer and more readable without changing its meaning.",
+      parafrase:
+        "Rewrite the text using different wording without changing its meaning.",
+      ubah_nada:
+        "Rewrite the text into the requested tone without changing its meaning.",
+    };
 
-    if (mode === "caption") {
-      prompt = `Buat caption ${style} dan menarik dari teks berikut:\n${text}`;
-    } else if (mode === "ringkas") {
-      prompt = `Ringkas teks berikut menjadi 5 poin dengan gaya ${style}:\n${text}`;
-    } else {
-      prompt = `Ubah teks berikut menjadi gaya ${style}:\n${text}`;
-    }
+    // 🎨 STYLE = tone bahasa
+    const styleInstruction = `Use a ${style} tone.`;
+
+    // ✍️ CHARACTER = cara menulis
+    const characterInstruction: Record<string, string> = {
+      storytelling: "Write in a storytelling manner as if telling a story.",
+      persuasif: "Write in a persuasive way that convinces the reader.",
+      to_the_point: "Be concise, direct, and straight to the point.",
+      deskriptif: "Use descriptive language that paints a clear picture.",
+      edukatif: "Write in an educational and explanatory manner.",
+    };
+
+    const prompt = `
+You must respond in the SAME language as the input text.
+
+Task:
+${modeInstruction[mode] || "Rewrite the text."}
+${styleInstruction}
+${characterInstruction[character] || ""}
+
+Follow the instruction strictly based on the requested output format.
+Do not add explanations outside the result.
+
+Input text:
+"${text}"
+`;
 
     const completion = await groq.chat.completions.create({
       model: "llama-3.3-70b-versatile",

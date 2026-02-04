@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import { SparklesIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   setResult: (value: string) => void;
@@ -10,6 +11,7 @@ const Input = ({ setResult, setIsLoading }: Props) => {
   const [text, setText] = useState("");
   const [mode, setMode] = useState("caption");
   const [style, setStyle] = useState("santai");
+  const [character, setCharacter] = useState("storytelling");
   const [loading, setLoading] = useState(false);
 
   const handleGenerate = async () => {
@@ -42,7 +44,7 @@ const Input = ({ setResult, setIsLoading }: Props) => {
         <h2 className="font-semibold">Input Teks Anda</h2>
         <textarea
           placeholder="Masukkan teks di sini..."
-          className="border p-4 h-60 resize-none"
+          className="border p-4 h-60 resize-none rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
@@ -61,6 +63,9 @@ const Input = ({ setResult, setIsLoading }: Props) => {
             >
               <option value="caption">Penulis Caption</option>
               <option value="ringkas">Ringkas Teks</option>
+              <option value="lanjutkan_teks">Lanjutkan Teks</option>
+              <option value="perbaiki_teks">Perbaiki Teks</option>
+              <option value="parafrase">Parafrase</option>
               <option value="ubah_nada">Ubah Nada</option>
             </select>
           </div>
@@ -75,17 +80,46 @@ const Input = ({ setResult, setIsLoading }: Props) => {
             >
               <option value="santai">Santai</option>
               <option value="formal">Formal</option>
+              <option value="semi-formal">Semi-Formal</option>
+              <option value="friendly">Friendly</option>
+              <option value="profesional">Profesional</option>
+            </select>
+          </div>
+
+          {/* CHARACTER */}
+          <div className="flex items-center">
+            <label className="mr-4">Character:</label>
+            <select
+              className="border p-2"
+              value={character}
+              onChange={(e) => setCharacter(e.target.value)}
+            >
+              <option value="storytelling">Storytelling</option>
+              <option value="persuasif">Persuasif</option>
+              <option value="to_the_point">To The Point</option>
+              <option value="deskriptif">Deskriptif</option>
+              <option value="edukatif">Edukatif</option>
             </select>
           </div>
         </div>
 
         {/* BUTTON */}
+
         <button
           onClick={handleGenerate}
-          className="border text-xl font-bold p-2 hover:cursor-pointer hover:bg-gray-200 transition disabled:opacity-50"
+          className="border bg-[#fe718d] text-white border-black text-xl font-bold p-2 hover:cursor-pointer hover:bg-[#ff5c75] transition disabled:opacity-50"
           disabled={!text || loading}
         >
-          {loading ? "Loading..." : "GENERATE"}
+          {loading ? (
+            "Loading..."
+          ) : (
+            <>
+              <div className="flex items-center justify-center">
+                <SparklesIcon className="w-6 h-6 group-hover:rotate-12 transition mr-1" />
+                GENERATE
+              </div>
+            </>
+          )}
         </button>
       </div>
     </div>
