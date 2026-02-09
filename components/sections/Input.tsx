@@ -38,9 +38,9 @@ const Input = ({ setResult, setIsLoading }: Props) => {
   };
 
   return (
-    <div className="w-full flex gap-12">
+    <div className="w-full flex flex-col md:flex-row gap-6 md:gap-12">
       {/* INPUT TEXT */}
-      <div className="flex flex-col gap-2 w-2/3">
+      <div className="flex flex-col gap-2 md:w-2/3">
         <h2 className="font-semibold">Input Teks Anda</h2>
         <textarea
           placeholder="Masukkan teks di sini..."
@@ -51,8 +51,8 @@ const Input = ({ setResult, setIsLoading }: Props) => {
       </div>
 
       {/* OPTIONS */}
-      <div className="flex flex-col w-1/3">
-        <div className="flex flex-col gap-4 mt-6 mb-8">
+      <div className="flex flex-col md:w-1/3">
+        <div className="flex flex-col gap-4 md:mt-6 mb-8">
           {/* MODE */}
           <div className="flex items-center">
             <label className="mr-4">Mode:</label>
@@ -104,7 +104,6 @@ const Input = ({ setResult, setIsLoading }: Props) => {
         </div>
 
         {/* BUTTON */}
-
         <button
           onClick={handleGenerate}
           className="border bg-[#fe718d] text-white border-black text-xl font-bold p-2 hover:cursor-pointer hover:bg-[#ff5c75] transition disabled:opacity-50"
