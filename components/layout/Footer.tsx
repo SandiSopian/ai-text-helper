@@ -15,6 +15,14 @@ const Footer = () => {
         assistance.
       </p>
 
+      <div className="mt-10 text-sm flex gap-4 flex-wrap">
+        <a href="/caption-instagram">Caption Instagram</a>
+        <a href="/caption-jualan-online">Caption Jualan Online</a>
+        <a href="/caption-promosi-wa">Caption Promosi WA</a>
+        <a href="/parafrase-kalimat">Parafrase Kalimat</a>
+        <a href="/ringkas-teks-otomatis">Ringkas Teks</a>
+      </div>
+
       <div className="w-full border-t border-gray-300 my-2"></div>
 
       <p>© 2026 AI Text Helper. All rights reserved.</p>
