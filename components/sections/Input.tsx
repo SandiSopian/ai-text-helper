@@ -114,7 +114,7 @@ const Input = ({ setResult, setIsLoading }: Props) => {
           ) : (
             <>
               <div className="flex items-center justify-center">
-                <SparklesIcon className="w-6 h-6 group-hover:rotate-12 transition mr-1" />
+                <SparklesIcon className="w-6 h-6 group-hover:rotate-12 transition mr-1 dark:text-white" />
                 GENERATE
               </div>
             </>

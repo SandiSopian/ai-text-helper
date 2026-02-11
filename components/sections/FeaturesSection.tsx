@@ -4,6 +4,7 @@ import {
   PaintBrushIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
+import Image from "next/image";
 
 const featur = [
   {
@@ -41,20 +42,29 @@ const featur = [
 const FeaturesSection = () => {
   return (
     <>
-      <div className="text-center border border-gray-200 bg-gradient-to-r from-rose-50 to-red-100 p-4 rounded-lg">
-        <h1 className="text-2xl md:text-3xl font-bold mb-2">
-          Hasilkan Teks Berkualitas Secara Gratis
-        </h1>
+      <div className="text-center flex flex-col lg:flex-row items-center border border-gray-200 bg-gradient-to-r from-rose-50 to-red-100 p-6 rounded-lg dark:border-gray-700 dark:from-gray-900 dark:to-gray-800 mb-8">
+        <div className="lg:w-1/2 lg:ml-12 justify-center lg:text-left">
+          <h1 className="text-2xl md:text-3xl font-bold mb-2">
+            Hasilkan Teks Berkualitas Secara Gratis
+          </h1>
+          <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+            AI-Text-Helper dirancang untuk membantu Anda menghasilkan teks yang
+            rapi, jelas, dan sesuai kebutuhan hanya dalam hitungan detik.
+            Dibandingkan menulis secara manual yang memakan waktu dan energi,
+            Anda cukup menjelaskan kebutuhan Anda dengan kata-kata sederhana.
+            Tentukan gaya penulisan, panjang teks, atau tujuan penggunaannya,
+            dan AI-Text-Helper akan menyesuaikan hasil teks berdasarkan input
+            Anda secara instan—tanpa proses rumit dan tanpa biaya.
+          </p>
+        </div>
 
-        <p>
-          AI-Text-Helper dirancang untuk membantu Anda menghasilkan teks yang
-          rapi, jelas, dan sesuai kebutuhan hanya dalam hitungan detik.
-          Dibandingkan menulis secara manual yang memakan waktu dan energi, Anda
-          cukup menjelaskan kebutuhan Anda dengan kata-kata sederhana. Tentukan
-          gaya penulisan, panjang teks, atau tujuan penggunaannya, dan
-          AI-Text-Helper akan menyesuaikan hasil teks berdasarkan input Anda
-          secara instan—tanpa proses rumit dan tanpa biaya.
-        </p>
+        <Image
+          src="/feature-img.webp"
+          alt="AI Text Helper"
+          width={400}
+          height={200}
+          className="mx-auto mt-4"
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">

@@ -81,7 +81,9 @@ export default function FAQSection() {
                 }`}
               >
                 <div className="overflow-hidden">
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               </div>
             </div>

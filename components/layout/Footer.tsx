@@ -8,7 +8,7 @@ const courgette = Courgette({
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col items-center bg-red-400 p-6 text-white mt-10">
+    <footer className="flex flex-col items-center bg-red-400  p-6 text-white mt-10 dark:bg-gray-900">
       <h1 className="text-2xl md:text-3xl">AI Text Helper</h1>
       <p className={`${courgette.className} mb-6 max-w-xs text-center`}>
         From simple ideas to impactful writing, crafted effortlessly with AI

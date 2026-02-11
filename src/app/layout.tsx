@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "AI Text Helper",
   description: "Generate text easily with AI Text Helper",
+  verification: {
+    google: "Q_aMlC-RvDeHG0AqZBrPrc4kcE2XIBmz-Aqnq51Bl-M",
+  },
 };
 
 export default function RootLayout({

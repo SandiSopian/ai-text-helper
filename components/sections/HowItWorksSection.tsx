@@ -54,7 +54,7 @@ const HowItWorksSection = () => {
                 <h2 className="mt-6 font-semibold text-lg">{step.title}</h2>
                 <h3 className="font-semibold mt-2">{step.heading}</h3>
 
-                <p className="mt-3 text-gray-600 text-sm leading-relaxed">
+                <p className="mt-3 text-gray-600 text-sm leading-relaxed dark:text-gray-300">
                   {step.desc}
                 </p>
               </div>

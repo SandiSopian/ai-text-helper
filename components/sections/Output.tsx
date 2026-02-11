@@ -26,7 +26,7 @@ const Result = ({ result }: Props) => {
         </button>
       </div>
 
-      <div className="bg-white border-2 border-gray-300 rounded-md p-4 min-h-[180px] whitespace-pre-wrap leading-relaxed">
+      <div className="border-2 border-gray-300 rounded-md p-4 min-h-[180px] whitespace-pre-wrap leading-relaxed">
         {result}
       </div>
     </div>
